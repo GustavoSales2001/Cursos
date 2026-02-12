@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Olhar Perfeito | Escola de Beleza</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f6f3ee;
+  color: #333;
+}
+
+/* HEADER */
+header {
+  position: relative;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://i.imgur.com/waQRoHX.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 45vh;
+  padding: 60px 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-align: center;
+}
+
+/* LOGO */
+.logo-circle {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid white;
+
+  object-fit: cover;
+  object-position: center;
+
+  background: whitesmoke;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* TEXTO HEADER */
+header h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+header p {
+  font-size: clamp(16px, 3vw, 22px);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+/* NAV */
+nav {
+  background: #222;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: #3f6f5a;
+}
+
+/* SECTIONS */
+section {
+  padding: 70px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* CARDS */
+.card {
+  background: #ffffff;
+  padding: 25px;
+  margin: 25px 0;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card strong {
+  font-size: 22px;
+  color: #3f6f5a;
+}
+
+/* CONTEÚDO CARD */
+.card-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  line-height: 1.7;
+}
+
+.card.active .card-content {
+  max-height: 300px;
+}
+
+/* BOTÃO */
+button.cta {
+  background: linear-gradient(135deg, #3f6f5a, #2f5445);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+button.cta:hover {
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+  background: #222;
+  color: #eee;
+  text-align: center;
+  padding: 25px;
+  margin-top: 50px;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #3f6f5a;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .logo-circle {
+    width: 110px;
+    height: 110px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Olhar Perfeito</h1>
+  <p>Escola de Beleza Profissional</p>
+  <img src="logo.png" alt="Logo" class="logo-circle">
+</header>
+
+<nav>
+  <a href="#design" onclick="openCard('design')">Design</a>
+  <a href="#lash" onclick="openCard('lash')">Lash Lifting</a>
+  <a href="#brown" onclick="openCard('brown')">Brown Lamination</a>
+  <a href="#derma" onclick="openCard('derma')">Dermaplaning</a>
+  <a href="#contato">Contato</a>
+</nav>
+
+<section>
+  <div class="card" id="design" onclick="toggleCard(this)">
+    <strong>Design de Sobrancelhas</strong>
+    <div class="card-content">
+      <p>Curso completo para modelar e harmonizar sobrancelhas.</p>
+      <button class="cta" onclick="openWhatsApp('Design de Sobrancelhas')">Quero me Inscrever</button>
+    </div>
+  </div>
+
+  <div class="card" id="lash" onclick="toggleCard(this)">
+    <strong>Lash Lifting</strong>
+    <div class="card-content">
+      <p>Técnica que curva e realça os cílios naturais.</p>
+      <button class="cta" onclick="openWhatsApp('Lash Lifting')">Quero me Inscrever</button>
+    </div>
+  </div>
+
+  <div class="card" id="brown" onclick="toggleCard(this)">
+    <strong>Brown Lamination</strong>
+    <div class="card-content">
+      <p>Alinhamento e definição dos fios.</p>
+      <button class="cta" onclick="openWhatsApp('Brown Lamination')">Quero me Inscrever</button>
+    </div>
+  </div>
+
+  <div class="card" id="derma" onclick="toggleCard(this)">
+    <strong>Dermaplaning</strong>
+    <div class="card-content">
+      <p>Pele lisa, renovada e iluminada.</p>
+      <button class="cta" onclick="openWhatsApp('Dermaplaning')">Quero me Inscrever</button>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <h2>Contato</h2>
+  <p>Fale conosco pelo WhatsApp</p>
+  <button class="cta" onclick="openWhatsApp('Informações gerais')">Abrir WhatsApp</button>
+</section>
+
+<footer>
+  <p>© 2026 Olhar Perfeito — Todos os direitos reservados</p>
+</footer>
+
+<a class="whatsapp-float" onclick="openWhatsApp('Atendimento')">💬</a>
+
+<script>
+function openCard(id) {
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+    if (card.id === id) {
+      card.classList.add("active");
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else {
+      card.classList.remove("active");
+    }
+  });
+}
+
+function toggleCard(card) {
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(c => {
+    if (c !== card) c.classList.remove("active");
+  });
+
+  card.classList.toggle("active");
+}
+
+function openWhatsApp(curso) {
+  const msg = `Olá! Quero me inscrever no curso de ${curso}.`;
+  const url = `https://wa.me/5511999999999?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
