@@ -6,13 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -29,8 +25,6 @@ header {
     url("https://i.imgur.com/waQRoHX.jpeg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
   min-height: 45vh;
   padding: 60px 20px;
 
@@ -55,9 +49,7 @@ header {
   border: 5px solid white;
 
   object-fit: cover;
-  object-position: center;
-
-  background: whitesmoke;
+  background: #fff;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
@@ -94,9 +86,7 @@ nav a {
   transition: 0.3s;
 }
 
-nav a:hover {
-  background: #3f6f5a;
-}
+nav a:hover { background: #3f6f5a; }
 
 /* SECTIONS */
 section {
@@ -116,9 +106,7 @@ section {
   transition: transform 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
+.card:hover { transform: translateY(-5px); }
 
 .card strong {
   font-size: 22px;
@@ -133,8 +121,9 @@ section {
   line-height: 1.7;
 }
 
-.card.active .card-content {
-  max-height: 300px;
+/* ALTERAÇÃO AQUI */
+.card.active .card-content { 
+  max-height: 800px; 
 }
 
 /* BOTÃO */
@@ -150,8 +139,53 @@ button.cta {
   transition: 0.3s;
 }
 
-button.cta:hover {
-  transform: scale(1.05);
+button.cta:hover { transform: scale(1.05); }
+
+/* MAPA */
+.map-box {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  margin-top: 30px;
+  text-align: center;
+}
+
+.map-box h3 { color: #3f6f5a; }
+
+.map-box iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  background: #3f6f5a;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+}
+
+/* INSTAGRAM */
+.insta-box {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.insta-btn {
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
+  background: linear-gradient(45deg,#833ab4,#fd1d1d,#fcb045);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
 }
 
 /* FOOTER */
@@ -183,14 +217,8 @@ footer {
 
 /* MOBILE */
 @media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-  }
-
-  .logo-circle {
-    width: 110px;
-    height: 110px;
-  }
+  nav { flex-wrap: wrap; }
+  .logo-circle { width: 110px; height: 110px; }
 }
 </style>
 </head>
@@ -204,10 +232,10 @@ footer {
 </header>
 
 <nav>
-  <a href="#design" onclick="openCard('design')">Design</a>
-  <a href="#lash" onclick="openCard('lash')">Lash Lifting</a>
-  <a href="#brown" onclick="openCard('brown')">Brown Lamination</a>
-  <a href="#derma" onclick="openCard('derma')">Dermaplaning</a>
+  <a onclick="openCard('design')">Design</a>
+  <a onclick="openCard('lash')">Lash Lifting</a>
+  <a onclick="openCard('brown')">Brown Lamination</a>
+  <a onclick="openCard('derma')">Dermaplaning</a>
   <a href="#contato">Contato</a>
 </nav>
 
@@ -246,8 +274,26 @@ footer {
 </section>
 
 <section id="contato">
-  <h2>Contato</h2>
-  <p>Fale conosco pelo WhatsApp</p>
+  <h2>Nosso Endereço</h2>
+  <p>📍 Centro de Mogi - R. Braz Cubas, 251 - 3° andar sala 34<br>
+  Centro, Mogi das Cruzes - SP</p>
+
+  <div class="map-box">
+    <h3>Como chegar</h3>
+
+    <iframe src="https://www.google.com/maps?q=R.%20Braz%20Cubas,%20251,%20Mogi%20das%20Cruzes%20SP&output=embed"></iframe>
+
+    <a class="map-link" href="https://www.google.com/maps?q=R.%20Braz%20Cubas,%20251,%20Mogi%20das%20Cruzes%20SP" target="_blank">
+      📍 Abrir no Google Maps
+    </a>
+  </div>
+
+  <div class="insta-box">
+    <h3>Instagram</h3>
+    <a class="insta-btn" href="https://www.instagram.com/rosani.balbi" target="_blank">📸 Ver Instagram</a>
+    <a class="insta-btn" href="https://www.instagram.com/direct/t/rosani.balbi" target="_blank">💬 Enviar Mensagem</a>
+  </div>
+
   <button class="cta" onclick="openWhatsApp('Informações gerais')">Abrir WhatsApp</button>
 </section>
 
@@ -259,26 +305,21 @@ footer {
 
 <script>
 function openCard(id) {
-  const cards = document.querySelectorAll('.card');
+  const card = document.getElementById(id);
 
-  cards.forEach(card => {
-    if (card.id === id) {
-      card.classList.add("active");
-      card.scrollIntoView({ behavior: "smooth", block: "center" });
-    } else {
-      card.classList.remove("active");
-    }
-  });
+  document.querySelectorAll('.card').forEach(c => c.classList.remove("active"));
+  card.classList.add("active");
+
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 function toggleCard(card) {
-  const cards = document.querySelectorAll('.card');
-
-  cards.forEach(c => {
+  document.querySelectorAll('.card').forEach(c => {
     if (c !== card) c.classList.remove("active");
   });
 
   card.classList.toggle("active");
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 function openWhatsApp(curso) {
@@ -290,4 +331,3 @@ function openWhatsApp(curso) {
 
 </body>
 </html>
-
