@@ -5,6 +5,8 @@
 <title>Olhar Perfeito | Escola de Beleza</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -115,6 +117,19 @@ button.cta {
   margin-top: 20px;
 }
 
+/* AVALIAÇÕES */
+.review {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  margin: 15px 0;
+}
+
+.review span {
+  color: #FFD700;
+}
+
 /* MAPA */
 .map-box {
   background: white;
@@ -125,24 +140,12 @@ button.cta {
   text-align: center;
 }
 
-.map-box h3 { color: #8A997E; }
-
 .map-box iframe {
   width: 100%;
   height: 350px;
   border: 0;
   border-radius: 15px;
   margin-top: 15px;
-}
-
-.map-link {
-  display: inline-block;
-  margin-top: 15px;
-  text-decoration: none;
-  background: #8A997E;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 30px;
 }
 
 /* FOOTER */
@@ -166,7 +169,7 @@ footer {
 }
 
 .float-btn {
-  background: #9EAD93;
+  background: #25D366;
   color: white;
   border-radius: 50%;
   width: 60px;
@@ -177,6 +180,10 @@ footer {
   justify-content: center;
   text-decoration: none;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.float-btn.instagram {
+  background: #E1306C;
 }
 
 /* MOBILE */
@@ -200,14 +207,34 @@ footer {
   <a onclick="openCard('lash')">Lash Lifting</a>
   <a onclick="openCard('brown')">Brown Lamination</a>
   <a onclick="openCard('derma')">Dermaplaning</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#avaliacoes">Avaliações</a>
   <a href="#contato">Contato</a>
 </nav>
+
+<section id="sobre">
+<h2>Sobre a Escola</h2>
+<p>
+A Escola de Beleza Olhar Perfeito nasceu do desejo de transformar vidas através da estética e do cuidado com a beleza.
+Aqui acreditamos que cada pessoa tem um potencial único e merece aprender com qualidade, carinho e profissionalismo.
+Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas alunas saiam prontas para atuar no mercado.
+</p>
+
+<h3>Por que fazer nossos cursos?</h3>
+<ul>
+<li>✔ Ensino prático e atualizado</li>
+<li>✔ Turmas reduzidas para melhor aprendizado</li>
+<li>✔ Certificação profissional</li>
+<li>✔ Apoio mesmo após o curso</li>
+<li>✔ Mercado em constante crescimento</li>
+</ul>
+</section>
 
 <section>
   <div class="card" id="design" onclick="toggleCard(this)">
     <strong>Design de Sobrancelhas</strong>
     <div class="card-content">
-      <p>Curso completo para modelar e harmonizar sobrancelhas.</p>
+      <p>Curso completo para modelar e harmonizar sobrancelhas, valorizando cada tipo de rosto.</p>
       <button class="cta" onclick="openWhatsApp('Design de Sobrancelhas')">Quero me Inscrever</button>
     </div>
   </div>
@@ -215,7 +242,7 @@ footer {
   <div class="card" id="lash" onclick="toggleCard(this)">
     <strong>Lash Lifting</strong>
     <div class="card-content">
-      <p>Técnica que curva e realça os cílios naturais.</p>
+      <p>Técnica que curva e realça os cílios naturais sem alongamentos artificiais.</p>
       <button class="cta" onclick="openWhatsApp('Lash Lifting')">Quero me Inscrever</button>
     </div>
   </div>
@@ -223,7 +250,7 @@ footer {
   <div class="card" id="brown" onclick="toggleCard(this)">
     <strong>Brown Lamination</strong>
     <div class="card-content">
-      <p>Alinhamento e definição dos fios.</p>
+      <p>Alinhamento e definição dos fios para sobrancelhas mais volumosas e naturais.</p>
       <button class="cta" onclick="openWhatsApp('Brown Lamination')">Quero me Inscrever</button>
     </div>
   </div>
@@ -231,34 +258,46 @@ footer {
   <div class="card" id="derma" onclick="toggleCard(this)">
     <strong>Dermaplaning</strong>
     <div class="card-content">
-      <p>Pele lisa, renovada e iluminada.</p>
+      <p>Pele lisa, renovada e iluminada com técnica segura e profissional.</p>
       <button class="cta" onclick="openWhatsApp('Dermaplaning')">Quero me Inscrever</button>
     </div>
   </div>
 </section>
 
-<section id="contato">
-  <h2>Nosso Endereço</h2>
-  <p>📍 Centro de Mogi - R. Braz Cubas, 251 - 3° andar sala 34<br>
-  Centro, Mogi das Cruzes - SP</p>
+<section id="avaliacoes">
+<h2>Avaliações dos nossos alunos</h2>
 
-  <div class="map-box">
-    <h3>Como chegar</h3>
-    <iframe src="https://www.google.com/maps?q=R.%20Braz%20Cubas,%20251,%20Mogi%20das%20Cruzes%20SP&output=embed"></iframe>
-    <a class="map-link" href="https://www.google.com/maps?q=R.%20Braz%20Cubas,%20251,%20Mogi%20das%20Cruzes%20SP" target="_blank">
-      📍 Abrir no Google Maps
-    </a>
-  </div>
+<div class="review">
+<p><strong>Maria S.</strong></p>
+<p>⭐⭐⭐⭐⭐</p>
+<p>“Curso maravilhoso! Professora atenciosa e didática incrível. Saí confiante para atender minhas clientes.”</p>
+</div>
+
+<div class="review">
+<p><strong>Ana P.</strong></p>
+<p>⭐⭐⭐⭐⭐</p>
+<p>“Ambiente acolhedor e profissional. Aprendi muito mais do que esperava. Recomendo de olhos fechados.”</p>
+</div>
+</section>
+
+<section id="contato">
+<h2>Nosso Endereço</h2>
+<p>📍R. Braz Cubas, 251 - 3° andar sala 34<br>
+Centro, Mogi das Cruzes - SP</p>
+
+<div class="map-box">
+<iframe src="https://www.google.com/maps?q=R.%20Braz%20Cubas,%20251,%20Mogi%20das%20Cruzes%20SP&output=embed"></iframe>
+</div>
 </section>
 
 <footer>
-  <p>© 2026 Olhar Perfeito — Todos os direitos reservados</p>
+<p>© 2026 Olhar Perfeito — Todos os direitos reservados</p>
 </footer>
 
 <!-- BOTÕES FLUTUANTES -->
 <div class="float-buttons">
-  <a class="float-btn" onclick="openWhatsApp('Atendimento')">💬</a>
-  <a class="float-btn" href="https://www.instagram.com/rosani.balbi" target="_blank">📸</a>
+  <a class="float-btn" onclick="openWhatsApp('Atendimento')"><i class="fab fa-whatsapp"></i></a>
+  <a class="float-btn instagram" href="https://www.instagram.com/rosani.balbi" target="_blank"><i class="fab fa-instagram"></i></a>
 </div>
 
 <script>
