@@ -22,12 +22,12 @@ body {
 header {
   position: relative;
   background-image:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
     url("https://i.imgur.com/waQRoHX.jpeg");
   background-size: cover;
   background-position: center;
-  min-height: 45vh;
-  padding: 60px 20px;
+  min-height: 50vh;
+  padding: 40px 20px 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,13 +36,21 @@ header {
   text-align: center;
 }
 
+header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+header p {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+}
+
 /* LOGO */
 .logo-circle {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: 150px;
-  height: 150px;
+  bottom: 15px;
+  left: 15px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   border: 5px solid white;
   object-fit: cover;
@@ -55,8 +63,9 @@ nav {
   background: #8A997E;
   display: flex;
   justify-content: center;
-  gap: 15px;
-  padding: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -66,15 +75,16 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  padding: 10px 18px;
+  padding: 10px 16px;
   border-radius: 30px;
+  font-size: 0.95rem;
 }
 
 nav a:hover { background: #9EAD93; }
 
 /* SECTIONS */
 section {
-  padding: 60px 15px;
+  padding: 50px 15px;
   max-width: 1100px;
   margin: auto;
 }
@@ -82,15 +92,15 @@ section {
 /* CARDS */
 .card {
   background: #ffffff;
-  padding: 25px;
-  margin: 25px 0;
+  padding: 22px;
+  margin: 20px 0;
   border-radius: 18px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   cursor: pointer;
 }
 
 .card strong {
-  font-size: 22px;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
   color: #8A997E;
 }
 
@@ -98,7 +108,7 @@ section {
 .card-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transition: max-height 0.4s ease;
 }
 
 .card.active .card-content { 
@@ -110,18 +120,19 @@ button.cta {
   background: linear-gradient(135deg, #9EAD93, #8A997E);
   color: white;
   border: none;
-  padding: 14px 28px;
-  font-size: 16px;
+  padding: 14px 26px;
+  font-size: 1rem;
   border-radius: 30px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 15px;
+  width: 100%;
 }
 
 /* ===== AVALIAÇÕES ===== */
 #avaliacoes {
   background: linear-gradient(135deg, #8A997E, #9EAD93);
   border-radius: 25px;
-  padding: 80px 20px;
+  padding: 60px 15px;
   text-align: center;
   color: white;
 }
@@ -130,25 +141,19 @@ button.cta {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  position: relative;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .review-card {
   background: white;
   color: #333;
-  width: 60%;
-  max-width: 600px;
-  padding: 30px;
+  width: 100%;
+  max-width: 550px;
+  padding: 25px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  opacity: 1;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.review-card.fade {
-  opacity: 0;
-  transform: translateX(40px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .stars {
@@ -161,16 +166,16 @@ button.cta {
   background: white;
   border: none;
   border-radius: 50%;
-  font-size: 22px;
-  width: 45px;
-  height: 45px;
+  font-size: 20px;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
 }
 
 /* MAPA */
 .map-box {
   background: white;
-  padding: 25px;  
+  padding: 20px;  
   border-radius: 18px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   margin-top: 30px;
@@ -190,18 +195,18 @@ footer {
   background: #8A997E;
   color: #eee;
   text-align: center;
-  padding: 25px;
-  margin-top: 50px;
+  padding: 20px;
+  margin-top: 40px;
 }
 
 /* BOTÕES FLUTUANTES */
 .float-buttons {
   position: fixed;
-  bottom: 25px;
-  left: 25px;
+  bottom: 20px;
+  left: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   z-index: 100;
 }
 
@@ -209,9 +214,9 @@ footer {
   background: #25D366;
   color: white;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 28px;
+  width: 55px;
+  height: 55px;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -223,40 +228,35 @@ footer {
   background: #E1306C;
 }
 
-/* ===== MOBILE MELHORADO ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
 
-  nav { flex-wrap: wrap; }
-
-  .logo-circle { width: 110px; height: 110px; }
-
-  /* Avaliações em coluna */
-  .slider {
-    flex-direction: column;
-    gap: 15px;
+  header {
+    padding: 40px 15px 150px;
   }
 
-  .review-card {
-    width: 95%;
-    padding: 25px;
+  .logo-circle {
+    width: 95px;
+    height: 95px;
   }
 
-  .prev, .next {
-    width: 40px;
-    height: 40px;
-  }
-
-  /* Mapa maior */
-  .map-box iframe {
-    height: 420px;
-  }
-
-  #avaliacoes {
-    padding: 60px 15px;
+  nav a {
+    font-size: 0.85rem;
+    padding: 8px 12px;
   }
 
   section {
-    padding: 50px 15px;
+    padding: 40px 12px;
+  }
+
+  .float-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+
+  .map-box iframe {
+    height: 300px;
   }
 }
 </style>
@@ -401,13 +401,12 @@ const reviewName = document.getElementById("review-name");
 const reviewCard = document.getElementById("review-card");
 
 function showReview() {
-  reviewCard.classList.add("fade");
-
+  reviewCard.style.opacity = 0;
   setTimeout(() => {
     reviewText.textContent = reviews[index].text;
     reviewName.textContent = reviews[index].name;
-    reviewCard.classList.remove("fade");
-  }, 500);
+    reviewCard.style.opacity = 1;
+  }, 400);
 }
 
 document.querySelector(".next").onclick = () => {
