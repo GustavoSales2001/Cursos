@@ -118,7 +118,6 @@ button.cta {
 }
 
 /* ===== AVALIAÇÕES ===== */
-
 #avaliacoes {
   background: linear-gradient(135deg, #8A997E, #9EAD93);
   border-radius: 25px;
@@ -224,11 +223,41 @@ footer {
   background: #E1306C;
 }
 
-/* MOBILE */
+/* ===== MOBILE MELHORADO ===== */
 @media (max-width: 768px) {
+
   nav { flex-wrap: wrap; }
+
   .logo-circle { width: 110px; height: 110px; }
-  .review-card { width: 90%; }
+
+  /* Avaliações em coluna */
+  .slider {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .review-card {
+    width: 95%;
+    padding: 25px;
+  }
+
+  .prev, .next {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Mapa maior */
+  .map-box iframe {
+    height: 420px;
+  }
+
+  #avaliacoes {
+    padding: 60px 15px;
+  }
+
+  section {
+    padding: 50px 15px;
+  }
 }
 </style>
 </head>
@@ -303,7 +332,6 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
   </div>
 </section>
 
-<!-- AVALIAÇÕES -->
 <section id="avaliacoes">
 <h2>O que nossas alunas estão falando?</h2>
 
@@ -361,7 +389,6 @@ function openWhatsApp(curso) {
   window.open(url, "_blank");
 }
 
-/* SLIDER AUTOMÁTICO */
 const reviews = [
   { text: "Curso maravilhoso! Professora atenciosa e didática incrível.", name: "Maria A" },
   { text: "Ambiente acolhedor e profissional. Aprendi muito mais do que esperava.", name: "Milene A" },
@@ -393,7 +420,6 @@ document.querySelector(".prev").onclick = () => {
   showReview();
 };
 
-/* AUTO PLAY */
 setInterval(() => {
   index = (index + 1) % reviews.length;
   showReview();
