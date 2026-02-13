@@ -74,7 +74,7 @@ nav a:hover { background: #9EAD93; }
 
 /* SECTIONS */
 section {
-  padding: 70px 20px;
+  padding: 60px 15px;
   max-width: 1100px;
   margin: auto;
 }
@@ -117,23 +117,61 @@ button.cta {
   margin-top: 20px;
 }
 
-/* AVALIAÇÕES */
-.review {
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  margin: 15px 0;
+/* ===== AVALIAÇÕES ===== */
+
+#avaliacoes {
+  background: linear-gradient(135deg, #8A997E, #9EAD93);
+  border-radius: 25px;
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
 }
 
-.review span {
-  color: #FFD700;
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+.review-card {
+  background: white;
+  color: #333;
+  width: 60%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  opacity: 1;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.review-card.fade {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.stars {
+  color: gold;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.prev, .next {
+  background: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
 }
 
 /* MAPA */
 .map-box {
   background: white;
-  padding: 25px;
+  padding: 25px;  
   border-radius: 18px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   margin-top: 30px;
@@ -190,6 +228,7 @@ footer {
 @media (max-width: 768px) {
   nav { flex-wrap: wrap; }
   .logo-circle { width: 110px; height: 110px; }
+  .review-card { width: 90%; }
 }
 </style>
 </head>
@@ -203,11 +242,11 @@ footer {
 </header>
 
 <nav>
+  <a href="#sobre">Sobre</a>
   <a onclick="openCard('design')">Design</a>
   <a onclick="openCard('lash')">Lash Lifting</a>
   <a onclick="openCard('brown')">Brown Lamination</a>
   <a onclick="openCard('derma')">Dermaplaning</a>
-  <a href="#sobre">Sobre</a>
   <a href="#avaliacoes">Avaliações</a>
   <a href="#contato">Contato</a>
 </nav>
@@ -215,8 +254,8 @@ footer {
 <section id="sobre">
 <h2>Sobre a Escola</h2>
 <p>
-A Escola de Beleza Olhar Perfeito nasceu do desejo de transformar vidas através da estética e do cuidado com a beleza.
-Aqui acreditamos que cada pessoa tem um potencial único e merece aprender com qualidade, carinho e profissionalismo.
+A Escola de Beleza Olhar Perfeito nasceu do desejo de transformar vidas através da estética e do cuidado com a beleza.<br><br>
+Aqui acreditamos que cada pessoa tem um potencial único e merece aprender com qualidade, carinho e profissionalismo.<br><br>
 Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas alunas saiam prontas para atuar no mercado.
 </p>
 
@@ -234,7 +273,7 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
   <div class="card" id="design" onclick="toggleCard(this)">
     <strong>Design de Sobrancelhas</strong>
     <div class="card-content">
-      <p>Curso completo para modelar e harmonizar sobrancelhas, valorizando cada tipo de rosto.</p>
+      <p>Curso completo para modelar e harmonizar sobrancelhas.</p>
       <button class="cta" onclick="openWhatsApp('Design de Sobrancelhas')">Quero me Inscrever</button>
     </div>
   </div>
@@ -242,7 +281,7 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
   <div class="card" id="lash" onclick="toggleCard(this)">
     <strong>Lash Lifting</strong>
     <div class="card-content">
-      <p>Técnica que curva e realça os cílios naturais sem alongamentos artificiais.</p>
+      <p>Técnica que curva e realça os cílios naturais.</p>
       <button class="cta" onclick="openWhatsApp('Lash Lifting')">Quero me Inscrever</button>
     </div>
   </div>
@@ -250,7 +289,7 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
   <div class="card" id="brown" onclick="toggleCard(this)">
     <strong>Brown Lamination</strong>
     <div class="card-content">
-      <p>Alinhamento e definição dos fios para sobrancelhas mais volumosas e naturais.</p>
+      <p>Alinhamento e definição dos fios.</p>
       <button class="cta" onclick="openWhatsApp('Brown Lamination')">Quero me Inscrever</button>
     </div>
   </div>
@@ -258,25 +297,26 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
   <div class="card" id="derma" onclick="toggleCard(this)">
     <strong>Dermaplaning</strong>
     <div class="card-content">
-      <p>Pele lisa, renovada e iluminada com técnica segura e profissional.</p>
+      <p>Pele lisa e renovada.</p>
       <button class="cta" onclick="openWhatsApp('Dermaplaning')">Quero me Inscrever</button>
     </div>
   </div>
 </section>
 
+<!-- AVALIAÇÕES -->
 <section id="avaliacoes">
-<h2>Avaliações dos nossos alunos</h2>
+<h2>O que nossas alunas estão falando?</h2>
 
-<div class="review">
-<p><strong>Maria S.</strong></p>
-<p>⭐⭐⭐⭐⭐</p>
-<p>“Curso maravilhoso! Professora atenciosa e didática incrível. Saí confiante para atender minhas clientes.”</p>
-</div>
+<div class="slider">
+  <button class="prev">&#10094;</button>
 
-<div class="review">
-<p><strong>Ana P.</strong></p>
-<p>⭐⭐⭐⭐⭐</p>
-<p>“Ambiente acolhedor e profissional. Aprendi muito mais do que esperava. Recomendo de olhos fechados.”</p>
+  <div class="review-card" id="review-card">
+    <div class="stars">★★★★★</div>
+    <p id="review-text">Curso maravilhoso! Professora atenciosa e didática incrível.</p>
+    <strong id="review-name">Maria A</strong>
+  </div>
+
+  <button class="next">&#10095;</button>
 </div>
 </section>
 
@@ -294,7 +334,6 @@ Centro, Mogi das Cruzes - SP</p>
 <p>© 2026 Olhar Perfeito — Todos os direitos reservados</p>
 </footer>
 
-<!-- BOTÕES FLUTUANTES -->
 <div class="float-buttons">
   <a class="float-btn" onclick="openWhatsApp('Atendimento')"><i class="fab fa-whatsapp"></i></a>
   <a class="float-btn instagram" href="https://www.instagram.com/rosani.balbi" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -321,8 +360,45 @@ function openWhatsApp(curso) {
   const url = `https://wa.me/5511956841148?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank");
 }
+
+/* SLIDER AUTOMÁTICO */
+const reviews = [
+  { text: "Curso maravilhoso! Professora atenciosa e didática incrível.", name: "Maria A" },
+  { text: "Ambiente acolhedor e profissional. Aprendi muito mais do que esperava.", name: "Milene A" },
+  { text: "Me senti segura e preparada para começar a atender minhas clientes.", name: "Julia M" }
+];
+
+let index = 0;
+const reviewText = document.getElementById("review-text");
+const reviewName = document.getElementById("review-name");
+const reviewCard = document.getElementById("review-card");
+
+function showReview() {
+  reviewCard.classList.add("fade");
+
+  setTimeout(() => {
+    reviewText.textContent = reviews[index].text;
+    reviewName.textContent = reviews[index].name;
+    reviewCard.classList.remove("fade");
+  }, 500);
+}
+
+document.querySelector(".next").onclick = () => {
+  index = (index + 1) % reviews.length;
+  showReview();
+};
+
+document.querySelector(".prev").onclick = () => {
+  index = (index - 1 + reviews.length) % reviews.length;
+  showReview();
+};
+
+/* AUTO PLAY */
+setInterval(() => {
+  index = (index + 1) % reviews.length;
+  showReview();
+}, 4000);
 </script>
 
 </body>
 </html>
-
