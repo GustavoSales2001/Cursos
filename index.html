@@ -18,6 +18,8 @@ body {
   color: #333;
 }
 
+section { scroll-margin-top: 90px; }
+
 /* HEADER */
 header {
   position: relative;
@@ -29,24 +31,20 @@ header {
   min-height: 50vh;
   padding: 40px 20px 120px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
 }
 
-/* TÍTULO */
 .header-title {
   position: absolute;
   bottom: 95px;
   left: 180px;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: bold;
-  color: white;
   text-shadow: 0 3px 8px rgba(0,0,0,0.6);
 }
 
-/* LOGO */
 .logo-circle {
   position: absolute;
   bottom: 15px;
@@ -54,10 +52,9 @@ header {
   width: 130px;
   height: 130px;
   border-radius: 50%;
-  border: 5px solid white;
+  border: 4px solid #8A997E;
+  background-color: white;
   object-fit: cover;
-  background: #fff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 /* NAV */
@@ -79,11 +76,10 @@ nav a {
   font-weight: bold;
   padding: 10px 16px;
   border-radius: 30px;
-  font-size: 0.95rem;
   cursor: pointer;
 }
 
-nav a:hover { background: #9EAD93; }
+nav a:hover { background: #9EAD93; color:white; }
 
 /* SECTIONS */
 section {
@@ -103,11 +99,10 @@ section {
 }
 
 .card strong {
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-size: 1.3rem;
   color: #8A997E;
 }
 
-/* CONTEÚDO CARD */
 .card-content {
   max-height: 0;
   overflow: hidden;
@@ -115,7 +110,7 @@ section {
 }
 
 .card.active .card-content { 
-  max-height: 800px; 
+  max-height: 1200px; 
 }
 
 /* BOTÕES */
@@ -124,14 +119,10 @@ button.cta, .cert-btn {
   color: white;
   border: none;
   padding: 14px 26px;
-  font-size: 1rem;
   border-radius: 30px;
   cursor: pointer;
   margin-top: 15px;
   width: 100%;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
 }
 
 /* ===== AVALIAÇÕES ===== */
@@ -148,33 +139,28 @@ button.cta, .cert-btn {
   align-items: center;
   justify-content: center;
   gap: 15px;
-  flex-wrap: wrap;
 }
 
 .review-card {
   background: white;
   color: #333;
-  width: 100%;
   max-width: 550px;
   padding: 25px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.stars {
-  color: gold;
-  font-size: 22px;
-  margin-bottom: 10px;
-}
+.stars { color: gold; font-size:22px; }
 
 .prev, .next {
-  background: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 20px;
-  width: 42px;
-  height: 42px;
-  cursor: pointer;
+  background:white;
+  border:none;
+  border-radius:50%;
+  width:42px;
+  height:42px;
+  font-size:20px;
+  cursor:pointer;
 }
 
 /* MAPA */
@@ -184,15 +170,12 @@ button.cta, .cert-btn {
   border-radius: 18px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   margin-top: 30px;
-  text-align: center;
 }
 
 .map-box iframe {
   width: 100%;
   height: 350px;
-  border: 0;
   border-radius: 15px;
-  margin-top: 15px;
 }
 
 /* FOOTER */
@@ -201,10 +184,9 @@ footer {
   color: #eee;
   text-align: center;
   padding: 20px;
-  margin-top: 40px;
 }
 
-/* BOTÕES FLUTUANTES */
+/* FLOAT */
 .float-buttons {
   position: fixed;
   bottom: 20px;
@@ -212,7 +194,6 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  z-index: 100;
 }
 
 .float-btn {
@@ -225,51 +206,24 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
-
-.float-btn.instagram {
-  background: #E1306C;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .logo-circle {
-    width: 90px;
-    height: 90px;
-  }
-
-  .header-title {
-    left: 120px;
-    bottom: 120px;
-    font-size: 1.5rem;
-  }
-
-  section {
-    padding: 40px 12px;
-  }
-
-  .map-box iframe {
-    height: 300px;
-  }
-}
+.float-btn.instagram { background:#E1306C; }
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo" class="logo-circle">
+  <img src="logo.png" class="logo-circle">
   <div class="header-title">Realçando sua beleza</div>
 </header>
 
 <nav>
   <a href="#sobre">Sobre</a>
-  <a href="#design">Design</a>
-  <a href="#lash">Lash Lifting</a>
-  <a href="#brown">Brown Lamination</a>
-  <a href="#derma">Dermaplaning</a>
+  <a href="#design" onclick="openCardFromMenu(event,'design')">Design</a>
+  <a href="#lash" onclick="openCardFromMenu(event,'lash')">Lash Lifting</a>
+  <a href="#brown" onclick="openCardFromMenu(event,'brown')">Brown Lamination</a>
+  <a href="#derma" onclick="openCardFromMenu(event,'derma')">Dermaplaning</a>
   <a href="#certificados">Certificados</a>
   <a href="#avaliacoes">Avaliações</a>
   <a href="#contato">Contato</a>
@@ -277,12 +231,12 @@ footer {
 
 <section id="sobre">
 <h2>Sobre</h2>
-<p>
-A ideia nasceu do desejo de transformar vidas através da estética e do cuidado com a beleza.<br><br>
+<p>A ideia nasceu do desejo de transformar vidas através da estética e do cuidado com a beleza.<br><br>
 Aqui acreditamos que cada pessoa tem um potencial único e merece aprender com qualidade, carinho e profissionalismo.<br><br>
-Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas alunas saiam prontas para atuar no mercado.
-</p>
+Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas alunas saiam prontas para atuar no mercado.pç</p>
+</section>
 
+<section>
 <h3>Por que fazer nossos cursos?</h3>
 <ul>
 <li>✔ Ensino prático e atualizado</li>
@@ -294,37 +248,45 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
 </section>
 
 <section>
-  <div class="card" id="design" onclick="toggleCard(this)">
-    <strong>Design de Sobrancelhas</strong>
-    <div class="card-content">
-      <p>Curso completo para modelar e harmonizar sobrancelhas.</p>
-      <button class="cta" onclick="openWhatsApp('Design de Sobrancelhas')">Quero me Inscrever</button>
-    </div>
-  </div>
+<div class="card" id="design" onclick="toggleCard(this)">
+<strong>Design de Sobrancelhas</strong>
+<div class="card-content">
+ <p>Curso completo para modelar e harmonizar sobrancelhas.</p>
+ <p>Você aprenderá técnicas de visagismo, simetria facial, uso correto de instrumentos e atendimento profissional.</p>
+ <p>Ideal para quem deseja iniciar na área da beleza ou se especializar.</p>
+<button class="cta" onclick="openWhatsApp('Design de Sobrancelhas')">Quero me Inscrever</button>
+</div>
+</div>
 
-  <div class="card" id="lash" onclick="toggleCard(this)">
-    <strong>Lash Lifting</strong>
-    <div class="card-content">
-      <p>Técnica que curva e realça os cílios naturais.</p>
-      <button class="cta" onclick="openWhatsApp('Lash Lifting')">Quero me Inscrever</button>
-    </div>
-  </div>
+<div class="card" id="lash" onclick="toggleCard(this)">
+<strong>Lash Lifting</strong>
+<div class="card-content">
+<p>Técnica que curva e realça os cílios naturais.</p>
+      <p>Inclui biossegurança, prática em modelos reais e protocolos profissionais.</p>
+      <p>Resultado natural e duradouro para suas clientes.</p>
+<button class="cta" onclick="openWhatsApp('Lash Lifting')">Quero me Inscrever</button>
+</div>
+</div>
 
-  <div class="card" id="brown" onclick="toggleCard(this)">
-    <strong>Brown Lamination</strong>
-    <div class="card-content">
-      <p>Alinhamento e definição dos fios.</p>
-      <button class="cta" onclick="openWhatsApp('Brown Lamination')">Quero me Inscrever</button>
-    </div>
-  </div>
+<div class="card" id="brown" onclick="toggleCard(this)">
+<strong>Brown Lamination</strong>
+<div class="card-content">
+<p>Alinhamento e definição dos fios.</p>
+      <p>Curso completo com teoria e prática supervisionada.</p>
+      <p>Perfeito para quem busca diferenciação no mercado.</p>
+<button class="cta" onclick="openWhatsApp('Brown Lamination')">Quero me Inscrever</button>
+</div>
+</div>
 
-  <div class="card" id="derma" onclick="toggleCard(this)">
-    <strong>Dermaplaning</strong>
-    <div class="card-content">
-      <p>Pele lisa e renovada.</p>
-      <button class="cta" onclick="openWhatsApp('Dermaplaning')">Quero me Inscrever</button>
-    </div>
-  </div>
+<div class="card" id="derma" onclick="toggleCard(this)">
+<strong>Dermaplaning</strong>
+<div class="card-content">
+   <p>Pele lisa e renovada.</p>
+      <p>Você aprenderá sobre renovação celular, higienização e protocolos seguros.</p>
+      <p>Técnica que melhora a textura da pele e a autoestima das clientes.</p>
+<button class="cta" onclick="openWhatsApp('Dermaplaning')">Quero me Inscrever</button>
+</div>
+</div>
 </section>
 
 <section id="certificados">
@@ -337,17 +299,14 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
 
 <section id="avaliacoes">
 <h2>O que nossas alunas estão falando?</h2>
-
 <div class="slider">
-  <button class="prev">&#10094;</button>
-
-  <div class="review-card" id="review-card">
-    <div class="stars">★★★★★</div>
-    <p id="review-text">Curso maravilhoso! Professora atenciosa e didática incrível.</p>
-    <strong id="review-name">Maria A</strong>
-  </div>
-
-  <button class="next">&#10095;</button>
+<button class="prev">&#10094;</button>
+<div class="review-card" id="review-card">
+<div class="stars">★★★★★</div>
+<p id="review-text"></p>
+<strong id="review-name"></strong>
+</div>
+<button class="next">&#10095;</button>
 </div>
 </section>
 
@@ -370,27 +329,29 @@ Centro, Mogi das Cruzes - SP</p>
   <a class="float-btn instagram" href="https://www.instagram.com/rosani.balbi" target="_blank"><i class="fab fa-instagram"></i></a>
 </div>
 
-<script>
-function openCard(card) {
-  document.querySelectorAll('.card').forEach(c => c.classList.remove("active"));
-  card.classList.add("active");
-  card.scrollIntoView({ behavior: "smooth", block: "center" });
-}
 
+<script>
 function toggleCard(card) {
   document.querySelectorAll('.card').forEach(c => {
     if (c !== card) c.classList.remove("active");
   });
   card.classList.toggle("active");
-  card.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function openCardFromMenu(event,id){
+  event.preventDefault();
+  const card = document.getElementById(id);
+  document.querySelectorAll('.card').forEach(c => c.classList.remove("active"));
+  card.classList.add("active");
+  card.scrollIntoView({behavior:"smooth", block:"center"});
 }
 
 function openWhatsApp(curso) {
   const msg = `Olá! Quero me inscrever no curso de ${curso}.`;
-  const url = `https://wa.me/5511956841148?text=${encodeURIComponent(msg)}`;
-  window.open(url, "_blank");
+  window.open(`https://wa.me/5511956841148?text=${encodeURIComponent(msg)}`);
 }
 
+/* SLIDER */
 const reviews = [
   { text: "Curso maravilhoso! Professora atenciosa e didática incrível.", name: "Maria A" },
   { text: "Ambiente acolhedor e profissional. Aprendi muito mais do que esperava.", name: "Milene A" },
@@ -402,29 +363,30 @@ const reviewText = document.getElementById("review-text");
 const reviewName = document.getElementById("review-name");
 const reviewCard = document.getElementById("review-card");
 
-function showReview() {
-  reviewCard.style.opacity = 0;
-  setTimeout(() => {
-    reviewText.textContent = reviews[index].text;
-    reviewName.textContent = reviews[index].name;
-    reviewCard.style.opacity = 1;
-  }, 400);
+function showReview(dir="right"){
+  reviewCard.style.opacity=0;
+  reviewCard.style.transform = dir==="right"?"translateX(60px)":"translateX(-60px)";
+  setTimeout(()=>{
+    reviewText.textContent=reviews[index].text;
+    reviewName.textContent=reviews[index].name;
+    reviewCard.style.opacity=1;
+    reviewCard.style.transform="translateX(0)";
+  },400);
 }
 
-document.querySelector(".next").onclick = () => {
-  index = (index + 1) % reviews.length;
-  showReview();
-};
+document.querySelector(".next").onclick=()=>{
+  index=(index+1)%reviews.length;
+  showReview("right");
+}
+document.querySelector(".prev").onclick=()=>{
+  index=(index-1+reviews.length)%reviews.length;
+  showReview("left");
+}
 
-document.querySelector(".prev").onclick = () => {
-  index = (index - 1 + reviews.length) % reviews.length;
-  showReview();
-};
-
-setInterval(() => {
-  index = (index + 1) % reviews.length;
-  showReview();
-}, 4000);
+setInterval(()=>{
+  index=(index+1)%reviews.length;
+  showReview("right");
+},4000);
 </script>
 
 </body>
