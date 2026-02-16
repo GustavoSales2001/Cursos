@@ -18,7 +18,17 @@ body {
   color: #333;
 }
 
-section { scroll-margin-top: 90px; }
+section { 
+  scroll-margin-top: 90px; 
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* HEADER */
 header {
@@ -226,14 +236,32 @@ footer {
   <a href="#derma" onclick="openCardFromMenu(event,'derma')">Dermaplaning</a>
   <a href="#certificados">Certificados</a>
   <a href="#avaliacoes">Avaliações</a>
-  <a href="#contato">Contato</a>
 </nav>
 
 <section id="sobre">
 <h2>Sobre</h2>
-<p>A ideia nasceu do desejo de transformar vidas através da estética e do cuidado com a beleza.<br><br>
-Aqui acreditamos que cada pessoa tem um potencial único e merece aprender com qualidade, carinho e profissionalismo.<br><br>
-Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas alunas saiam prontas para atuar no mercado.pç</p>
+<section id="sobre">
+
+<p>
+Essa idéia nasceu com o propósito de transformar vidas por meio da beleza, da autoestima e da capacitação profissional.
+Somos uma escola especializada na formação de profissionais da área da estética, oferecendo cursos modernos, práticos e alinhados às exigências do mercado atual.
+</p>
+
+<p>
+Acreditamos que cada aluno possui um potencial único e que, com orientação correta, técnica adequada e acompanhamento próximo, é possível construir uma carreira sólida e promissora na área da beleza.
+Por isso, nossos cursos são desenvolvidos para unir teoria e prática, preparando você não apenas para aprender, mas para atuar com segurança e profissionalismo.
+</p>
+
+<p>
+Nossa missão é formar profissionais confiantes, éticos e preparados para oferecer um atendimento de excelência aos seus clientes.
+Trabalhamos com métodos atualizados, ambiente acolhedor e ensino humanizado, valorizando cada etapa do aprendizado.
+</p>
+
+<p>
+Mais do que ensinar técnicas, buscamos inspirar nossos alunos a acreditarem em si mesmos, a empreenderem e a conquistarem independência financeira por meio da estética e do cuidado com a beleza.
+</p>
+</section>
+
 </section>
 
 <section>
@@ -251,9 +279,9 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
 <div class="card" id="design" onclick="toggleCard(this)">
 <strong>Design de Sobrancelhas</strong>
 <div class="card-content">
- <p>Curso completo para modelar e harmonizar sobrancelhas.</p>
- <p>Você aprenderá técnicas de visagismo, simetria facial, uso correto de instrumentos e atendimento profissional.</p>
- <p>Ideal para quem deseja iniciar na área da beleza ou se especializar.</p>
+<p>Curso completo para modelar e harmonizar sobrancelhas.</p>
+<p>Você aprenderá técnicas de visagismo, simetria facial, uso correto de instrumentos e atendimento profissional.</p>
+<p>Ideal para quem deseja iniciar na área da beleza ou se especializar.</p>
 <button class="cta" onclick="openWhatsApp('Design de Sobrancelhas')">Quero me Inscrever</button>
 </div>
 </div>
@@ -262,8 +290,8 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
 <strong>Lash Lifting</strong>
 <div class="card-content">
 <p>Técnica que curva e realça os cílios naturais.</p>
-      <p>Inclui biossegurança, prática em modelos reais e protocolos profissionais.</p>
-      <p>Resultado natural e duradouro para suas clientes.</p>
+<p>Inclui biossegurança, prática em modelos reais e protocolos profissionais.</p>
+<p>Resultado natural e duradouro para suas clientes.</p>
 <button class="cta" onclick="openWhatsApp('Lash Lifting')">Quero me Inscrever</button>
 </div>
 </div>
@@ -272,8 +300,8 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
 <strong>Brown Lamination</strong>
 <div class="card-content">
 <p>Alinhamento e definição dos fios.</p>
-      <p>Curso completo com teoria e prática supervisionada.</p>
-      <p>Perfeito para quem busca diferenciação no mercado.</p>
+<p>Curso completo com teoria e prática supervisionada.</p>
+<p>Perfeito para quem busca diferenciação no mercado.</p>
 <button class="cta" onclick="openWhatsApp('Brown Lamination')">Quero me Inscrever</button>
 </div>
 </div>
@@ -281,20 +309,18 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
 <div class="card" id="derma" onclick="toggleCard(this)">
 <strong>Dermaplaning</strong>
 <div class="card-content">
-   <p>Pele lisa e renovada.</p>
-      <p>Você aprenderá sobre renovação celular, higienização e protocolos seguros.</p>
-      <p>Técnica que melhora a textura da pele e a autoestima das clientes.</p>
+<p>Pele lisa e renovada.</p>
+<p>Você aprenderá sobre renovação celular, higienização e protocolos seguros.</p>
+<p>Técnica que melhora a textura da pele e a autoestima das clientes.</p>
 <button class="cta" onclick="openWhatsApp('Dermaplaning')">Quero me Inscrever</button>
 </div>
 </div>
 </section>
 
 <section id="certificados">
-  <h2>Certificados</h2>
-  <p>Veja nossos certificados e qualificações profissionais:</p>
-  <a href="https://gustavosales2001.github.io/cert/" target="_blank" class="cert-btn">
-    Ver Certificados
-  </a>
+<h2>Certificados</h2>
+<p>Veja nossos certificados e qualificações profissionais:</p>
+<a href="https://gustavosales2001.github.io/cert/" target="_blank" class="cert-btn">Ver Certificados</a>
 </section>
 
 <section id="avaliacoes">
@@ -310,7 +336,7 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
 </div>
 </section>
 
-<section id="contato">
+<section id="Endereço">
 <h2>Nosso Endereço</h2>
 <p>📍R. Braz Cubas, 251 - 1° andar sala 11<br>
 Centro, Mogi das Cruzes - SP</p>
@@ -325,10 +351,9 @@ Centro, Mogi das Cruzes - SP</p>
 </footer>
 
 <div class="float-buttons">
-  <a class="float-btn" onclick="openWhatsApp('Atendimento')"><i class="fab fa-whatsapp"></i></a>
-  <a class="float-btn instagram" href="https://www.instagram.com/rosani.balbi" target="_blank"><i class="fab fa-instagram"></i></a>
+<a class="float-btn" onclick="openWhatsApp('Atendimento')"><i class="fab fa-whatsapp"></i></a>
+<a class="float-btn instagram" href="https://www.instagram.com/rosani.balbi" target="_blank"><i class="fab fa-instagram"></i></a>
 </div>
-
 
 <script>
 function toggleCard(card) {
@@ -387,6 +412,19 @@ setInterval(()=>{
   index=(index+1)%reviews.length;
   showReview("right");
 },4000);
+
+/* ANIMAÇÃO AO ROLAR */
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{ threshold: 0.2 });
+
+sections.forEach(sec => observer.observe(sec));
 </script>
 
 </body>
