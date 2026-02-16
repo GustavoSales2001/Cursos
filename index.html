@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Olhar Perfeito | Escola de Beleza</title>
+<title>Realçando sua beleza</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
 
 <style>
 * { box-sizing: border-box; }
@@ -33,15 +33,17 @@ header {
   justify-content: center;
   align-items: center;
   color: white;
-  text-align: center;
 }
 
-header h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-}
-
-header p {
-  font-size: clamp(1rem, 3vw, 1.3rem);
+/* TÍTULO */
+.header-title {
+  position: absolute;
+  bottom: 95px;
+  left: 180px;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
 }
 
 /* LOGO */
@@ -78,6 +80,7 @@ nav a {
   padding: 10px 16px;
   border-radius: 30px;
   font-size: 0.95rem;
+  cursor: pointer;
 }
 
 nav a:hover { background: #9EAD93; }
@@ -116,7 +119,7 @@ section {
 }
 
 /* BOTÕES */
-button.cta {
+button.cta, .cert-btn {
   background: linear-gradient(135deg, #9EAD93, #8A997E);
   color: white;
   border: none;
@@ -126,6 +129,9 @@ button.cta {
   cursor: pointer;
   margin-top: 15px;
   width: 100%;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
 /* ===== AVALIAÇÕES ===== */
@@ -153,7 +159,6 @@ button.cta {
   padding: 25px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .stars {
@@ -228,31 +233,21 @@ footer {
   background: #E1306C;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media (max-width: 768px) {
-
-  header {
-    padding: 40px 15px 150px;
-  }
-
   .logo-circle {
-    width: 95px;
-    height: 95px;
+    width: 90px;
+    height: 90px;
   }
 
-  nav a {
-    font-size: 0.85rem;
-    padding: 8px 12px;
+  .header-title {
+    left: 120px;
+    bottom: 120px;
+    font-size: 1.5rem;
   }
 
   section {
     padding: 40px 12px;
-  }
-
-  .float-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 22px;
   }
 
   .map-box iframe {
@@ -265,25 +260,25 @@ footer {
 <body>
 
 <header>
-  <h1>Olhar Perfeito</h1>
-  <p>Escola de Beleza Profissional</p>
   <img src="logo.png" alt="Logo" class="logo-circle">
+  <div class="header-title">Realçando sua beleza</div>
 </header>
 
 <nav>
   <a href="#sobre">Sobre</a>
-  <a onclick="openCard('design')">Design</a>
-  <a onclick="openCard('lash')">Lash Lifting</a>
-  <a onclick="openCard('brown')">Brown Lamination</a>
-  <a onclick="openCard('derma')">Dermaplaning</a>
+  <a href="#design">Design</a>
+  <a href="#lash">Lash Lifting</a>
+  <a href="#brown">Brown Lamination</a>
+  <a href="#derma">Dermaplaning</a>
+  <a href="#certificados">Certificados</a>
   <a href="#avaliacoes">Avaliações</a>
   <a href="#contato">Contato</a>
 </nav>
 
 <section id="sobre">
-<h2>Sobre a Escola</h2>
+<h2>Sobre</h2>
 <p>
-A Escola de Beleza Olhar Perfeito nasceu do desejo de transformar vidas através da estética e do cuidado com a beleza.<br><br>
+A ideia nasceu do desejo de transformar vidas através da estética e do cuidado com a beleza.<br><br>
 Aqui acreditamos que cada pessoa tem um potencial único e merece aprender com qualidade, carinho e profissionalismo.<br><br>
 Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas alunas saiam prontas para atuar no mercado.
 </p>
@@ -332,6 +327,14 @@ Nossos cursos unem técnica, prática e acompanhamento próximo para que nossas 
   </div>
 </section>
 
+<section id="certificados">
+  <h2>Certificados</h2>
+  <p>Veja nossos certificados e qualificações profissionais:</p>
+  <a href="https://gustavosales2001.github.io/cert/" target="_blank" class="cert-btn">
+    Ver Certificados
+  </a>
+</section>
+
 <section id="avaliacoes">
 <h2>O que nossas alunas estão falando?</h2>
 
@@ -368,8 +371,7 @@ Centro, Mogi das Cruzes - SP</p>
 </div>
 
 <script>
-function openCard(id) {
-  const card = document.getElementById(id);
+function openCard(card) {
   document.querySelectorAll('.card').forEach(c => c.classList.remove("active"));
   card.classList.add("active");
   card.scrollIntoView({ behavior: "smooth", block: "center" });
