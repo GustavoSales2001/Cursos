@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Realçando sua beleza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" class="logo-circle">
+  <div class="header-title">Realçando sua beleza</div>
+</header>
+
+<nav>
+  <a href="#sobre">Sobre</a>
+  <a href="#design" onclick="openCardFromMenu(event,'design')">Design</a>
+  <a href="#lash" onclick="openCardFromMenu(event,'lash')">Lash Lifting</a>
+  <a href="#brown" onclick="openCardFromMenu(event,'brown')">Brown Lamination</a>
+  <a href="#derma" onclick="openCardFromMenu(event,'derma')">Dermaplaning</a>
+  <a href="certificados.html">Certificados</a>
+  <a href="#avaliacoes">Avaliações</a>
+</nav>
+
+<section id="sobre">
+  <h2>Sobre</h2>
+
+  <p>
+    Essa idéia nasceu com o propósito de transformar vidas por meio da beleza, da autoestima e da capacitação profissional.
+    Somos uma escola especializada na formação de profissionais da área da estética, oferecendo cursos modernos, práticos e alinhados às exigências do mercado atual.
+  </p>
+
+  <p>
+    Acreditamos que cada aluno possui um potencial único e que, com orientação correta, técnica adequada e acompanhamento próximo, é possível construir uma carreira sólida e promissora na área da beleza.
+    Por isso, nossos cursos são desenvolvidos para unir teoria e prática, preparando você não apenas para aprender, mas para atuar com segurança e profissionalismo.
+  </p>
+
+  <p>
+    Nossa missão é formar profissionais confiantes, éticos e preparados para oferecer um atendimento de excelência aos seus clientes.
+    Trabalhamos com métodos atualizados, ambiente acolhedor e ensino humanizado, valorizando cada etapa do aprendizado.
+  </p>
+
+  <p>
+    Mais do que ensinar técnicas, buscamos inspirar nossos alunos a acreditarem em si mesmos, a empreenderem e a conquistarem independência financeira por meio da estética e do cuidado com a beleza.
+  </p>
+</section>
+
+<section>
+  <h3>Por que fazer nossos cursos?</h3>
+  <ul>
+    <li>✔ Ensino prático e atualizado</li>
+    <li>✔ Turmas reduzidas para melhor aprendizado</li>
+    <li>✔ Certificação profissional</li>
+    <li>✔ Apoio mesmo após o curso</li>
+    <li>✔ Mercado em constante crescimento</li>
+  </ul>
+</section>
+
+<section>
+  <div class="card" id="design" onclick="toggleCard(this)">
+    <strong>Design de Sobrancelhas</strong>
+    <div class="card-content">
+      <p>Curso completo para modelar e harmonizar sobrancelhas.</p>
+      <p>Você aprenderá técnicas de visagismo, simetria facial, uso correto de instrumentos e atendimento profissional.</p>
+      <p>Ideal para quem deseja iniciar na área da beleza ou se especializar.</p>
+      <button class="cta" onclick="openWhatsApp('Design de Sobrancelhas')">Quero me Inscrever</button>
+    </div>
+  </div>
+
+  <div class="card" id="lash" onclick="toggleCard(this)">
+    <strong>Lash Lifting</strong>
+    <div class="card-content">
+      <p>Técnica que curva e realça os cílios naturais.</p>
+      <p>Inclui biossegurança, prática em modelos reais e protocolos profissionais.</p>
+      <p>Resultado natural e duradouro para suas clientes.</p>
+      <button class="cta" onclick="openWhatsApp('Lash Lifting')">Quero me Inscrever</button>
+    </div>
+  </div>
+
+  <div class="card" id="brown" onclick="toggleCard(this)">
+    <strong>Brown Lamination</strong>
+    <div class="card-content">
+      <p>Alinhamento e definição dos fios.</p>
+      <p>Curso completo com teoria e prática supervisionada.</p>
+      <p>Perfeito para quem busca diferenciação no mercado.</p>
+      <button class="cta" onclick="openWhatsApp('Brown Lamination')">Quero me Inscrever</button>
+    </div>
+  </div>
+
+  <div class="card" id="derma" onclick="toggleCard(this)">
+    <strong>Dermaplaning</strong>
+    <div class="card-content">
+      <p>Pele lisa e renovada.</p>
+      <p>Você aprenderá sobre renovação celular, higienização e protocolos seguros.</p>
+      <p>Técnica que melhora a textura da pele e a autoestima das clientes.</p>
+      <button class="cta" onclick="openWhatsApp('Dermaplaning')">Quero me Inscrever</button>
+    </div>
+  </div>
+</section>
+
+<section id="certificados">
+  <h2>Certificados</h2>
+  <p>Veja nossos certificados e qualificações profissionais:</p>
+  <a href="certificados.html" class="cert-btn">Ver Certificados</a>
+</section>
+
+<section id="avaliacoes">
+  <h2>O que nossas alunas estão falando?</h2>
+
+  <div class="slider">
+    <button class="prev">&#10094;</button>
+
+    <div class="review-card" id="review-card">
+      <div class="stars">★★★★★</div>
+      <p id="review-text"></p>
+      <strong id="review-name"></strong>
+    </div>
+
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+<section id="endereco">
+  <h2>Nosso Endereço</h2>
+  <p>
+    📍R. Braz Cubas, 251 - 1° andar sala 11<br>
+    Centro, Mogi das Cruzes - SP
+  </p>
+
+  <div class="map-box">
+    <iframe src="https://www.google.com/maps?q=R.%20Braz%20Cubas,%20251,%20Mogi%20das%20Cruzes%20SP&output=embed"></iframe>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Olhar Perfeito — Todos os direitos reservados</p>
+</footer>
+
+<div class="float-buttons">
+  <a class="float-btn" onclick="openWhatsApp('Atendimento')">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <a class="float-btn instagram" href="https://www.instagram.com/rosani.balbi" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
